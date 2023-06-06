@@ -18,10 +18,10 @@ expected_output = [{
 }]
 
 
-def run(df, df2, stream=None):
+def run(df, stream=None):
     """
     It will create a full name property on the payload
     """
-    df['salute'] = df2['salutation'] + ' ' + df['first_name']
+    # df['salute'] = df2['salutation'] + ' ' + df['first_name']
 
     return df

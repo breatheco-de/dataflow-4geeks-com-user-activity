@@ -1,29 +1,16 @@
 
-name: "Lead Collection"
+name: "BreatheCode Backup"
 # You can have as many pipelines as you want
 pipelines:
     # Unique name for your pipeline
-  - slug: "clean_form_entries"
+  - slug: "user_assignments"
     # During local development these are CSV files located at te ./sources folder.
     sources:
       # The order is relevant, this sources will be passed as parameters to the run() function in the same order
-      - form_entries
-      - salutations
+      - user_assignments
     # Ignored during local development, its the datasource to wich the pipeline data will be saved to
-    destination: datasource_csv
+    destination: bc_user_assignments
     # Order is relevant, they will execute one on top of the other.
     transformations:
-      - build_hello_world
-      - add_salutation
+      - process_user_assignments
     # Unique name for your pipeline
-  - slug: "form_entries_stream"
-    # During local development these are CSV files located at te ./sources folder.
-    sources:
-      # The order is relevant, this sources will be passed as parameters to the run() function in the same order
-      - form_entries
-      - salutations
-    # Ignored during local development, its the datasource to wich the pipeline data will be saved to
-    destination: datasource_csv
-    # Order is relevant, they will execute one on top of the other.
-    transformations:
-      - process_stream

@@ -13,7 +13,7 @@ from utils.core import (
 pipeline, sources, path_to_stream = get_params()
 if pipeline is None:
     all = load_pipelines_from_project()
-    raise Exception(f'Please specify pipeline to load from the following options: ' +
+    raise Exception(f'Please specify pipeline to load using the -n flag followed by pipeline name from the following options: ' +
                     ",".join([p['slug'] for p in all]))
 else:
     pipeline = load_pipelines_from_project(pipeline)[0]
