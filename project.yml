@@ -14,3 +14,14 @@ pipelines:
     transformations:
       - process_user_assignments
     # Unique name for your pipeline
+  - slug: "user_subscriptions"
+    # During local development these are CSV files located at te ./sources folder.
+    sources:
+      # The order is relevant, this sources will be passed as parameters to the run() function in the same order
+      - user_subscriptions
+    # Ignored during local development, its the datasource to wich the pipeline data will be saved to
+    destination: bc_user_subscriptions
+    # Order is relevant, they will execute one on top of the other.
+    transformations:
+      - process_user_subscriptions
+    # Unique name for your pipeline
